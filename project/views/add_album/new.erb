@@ -1,0 +1,23 @@
+<form method="post" action="/new">
+  <label for="artist-name">Select Artist Name:</label>
+  <select id="artist-name" name="artist_name">
+    <% Artist.all.each do |artist|  %>
+      <option value="<%= artist.id %>"><%= artist.artist_name %></option>
+    <% end  %>
+  </select>
+
+  <label for="album-name">Album Name:</label>
+    <input id="album-name" type="text" name="album_name">
+
+  <label for="album_quantity">Quantity:</label>
+   <input id="album-quantity" type="number" name="album_quantity">
+
+  <label for="buy-price">Buy Price:</label>
+    <input id="buy-price" type="number" name="buy-price"/>
+
+  <label for="sell-price">Sell Price:</label>
+    <input id="sell-price" type="number" name="sell-price"/>
+
+
+  <input type='submit' value="Add Album"/>
+</form>
