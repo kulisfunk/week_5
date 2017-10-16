@@ -1,5 +1,99 @@
+body {
+  background: black url('/images/record_groove.jpg')center center fixed;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #00ffff
+}
+
 h1.banner {
-        font-family: "Airstream", Arial;
-        font-size: 40px;
-        color: #99f;
-      }
+  /*background: black;*/
+  font-family: "Airstream", Arial;
+  font-size: 65px;
+  color: #33ccff;
+  text-align: center;
+        /*background: repeating-linear-gradient(45deg, #00ffff 0%, #00ffff 10%, #00ffff 0%, #00ffff 50%) 0 / 15px 15px;*/
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #00e6e6,
+    0 0 30px #00e6e6,
+    0 0 40px #00e6e6,
+    0 0 55px #00e6e6,
+    0 0 75px #00e6e6
+}
+
+.menu li {
+  display: inline;
+  background: black;
+  font-family: "Airstream", Arial;
+  font-size: 20px
+}
+
+li.menu1 a {
+  background: black;
+  font-family: "Airstream", Arial;
+  font-size: 20px;
+  color: #00ffff
+}
+
+li.menu2 a {
+  background: black;
+  font-family: "Airstream", Arial;
+  font-size: 20px;
+  color: #ff99ff
+}
+
+li.menu3 a {
+  background: black;
+  font-family: "Airstream", Arial;
+  font-size: 20px;
+  color: #66ff66
+}
+
+li.menu4 a {
+  background: black;
+  font-family: "Airstream", Arial;
+  font-size: 20px;
+  color: #ffff00
+}
+
+li.menu5 a {
+  background: black;
+  font-family: "Airstream", Arial;
+  font-size: 20px;
+  color: #ff99ff
+}
+
+table.inventory {
+  text-align: center;
+  background: black opacity(0.8);
+  margin: 0 auto;
+  color: #ffff00
+}
+
+.headings {
+  color: #66ff66
+}
+
+nav ul {
+  list-style-type: none;
+  padding-right: 10px;
+}
+nav ul li {
+  display: inline;
+  padding-right: 10px;
+}
+
+img.big_al {
+width: 250px;
+height: 150px
+}
+
+p.complete {
+  font-family: "Airstream", Arial;
+  font-size: 50px;
+  text-align: center
+}

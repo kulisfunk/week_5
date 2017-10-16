@@ -40,7 +40,7 @@ class Artist
   end
 
   def self.all()
-    sql = "SELECT * FROM artists"
+    sql = "SELECT * FROM artists ORDER BY artists.artist_name"
     values = []
     artists = SqlRunner.run( sql, "all", values )
     result = artists.map { |artist| Artist.new( artist ) }

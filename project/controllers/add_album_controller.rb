@@ -9,3 +9,9 @@ get '/add_album/new' do
   @albums = Album.all
   erb(:"add_album/new")
 end
+
+post '/add_album/add_new' do
+  album = Album.new(params)
+  album.save()
+  redirect to(:"add_album/new")
+end

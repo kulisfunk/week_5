@@ -47,7 +47,7 @@ class Album
   end
 
   def self.all()
-    sql = "SELECT * FROM albums"
+    sql = "SELECT * FROM albums ORDER BY albums.artist_id"
     values = []
     albums = SqlRunner.run( sql, "all", values )
     result = albums.map { |album| Album.new( album ) }
@@ -93,6 +93,12 @@ class Album
   def artist_name()
     return "#{@artist_name}"
   end
+
+  def profit()
+    total = ((@sell_price - @buy_price) * @quantity)
+    return total
+  end
+
 
 
 

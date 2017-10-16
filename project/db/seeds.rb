@@ -77,7 +77,7 @@ album2 = Album.new({
 album2.save()
 
 album3 = Album.new({
-  'album_name' => "wish You Were Here",
+  'album_name' => "Wish You Were Here",
   'quantity' => 5,
   'artist_id' => artist1.id,
   'buy_price' => 10,

@@ -1,0 +1,14 @@
+<p>Projected Profit of Inventory</p>
+
+
+<div class="albums">
+ <% @albums.each do |album| %>
+ <%= total_profit += @albums.profit() %>
+
+ <div class="">
+   <div class="profit">
+   <p>Total Profit  <%= total_profit%>  </p>
+   </div>
+  </div>
+ <% end %>
+</div>
