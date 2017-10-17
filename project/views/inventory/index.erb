@@ -5,17 +5,29 @@
   <tr class="headings">
     <th>Artist Name</th>
     <th>Album Name</th>
+    <th>Album Genre</th>
     <th>Buy Price</th>
     <th>Sell Price</th>
     <th>Quantity</th>
   </tr>
   <% for album in @albums %>
   <tr>
+
+    <%if album.quantity.to_i > 2%>
     <td><%= album.artist %></td>
     <td><%= album.album_name %></td>
+    <td><%= album.genre %></td>
     <td><%= album.album_buy %></td>
     <td><%= album.album_sell %></td>
-    <td><%= album.quantity %></td>
+     <td><%= album.quantity %></td>
+     <% else %>
+     <td class="red"><%= album.artist %></td>
+     <td class="red"><%= album.album_name %></td>
+     <td class="red"><%= album.genre %></td>
+     <td class="red"><%= album.album_buy %></td>
+     <td class="red"><%= album.album_sell %></td>
+     <td class="red"><%= album.quantity%></td>
+     <% end %>
   </tr>
   <% end %>
 </table>

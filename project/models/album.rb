@@ -8,7 +8,8 @@ class Album
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @album_name = options['album_name']
-    @quantity = options['quantity']
+    @genre_id = options['genre_id']
+    @quantity = options['quantity'].to_i
     @artist_id = options['artist_id'].to_i
     @buy_price = options['buy_price'].to_i
     @sell_price = options['sell_price'].to_i
@@ -18,6 +19,7 @@ class Album
     sql = "INSERT INTO albums
     (
       album_name,
+      genre_id,
       quantity,
       artist_id,
       buy_price,
@@ -25,18 +27,17 @@ class Album
     )
     VALUES
     (
-      $1, $2, $3, $4, $5
+      $1, $2, $3, $4, $5, $6
     )
     RETURNING id;
     "
-    values = [@album_name, @quantity, @artist_id, @buy_price, @sell_price]
+    values = [@album_name, @genre_id, @quantity, @artist_id, @buy_price, @sell_price]
     album_data = SqlRunner.run(sql, "save", values)
     @id = album_data.first()['id'].to_i
   end
 
   def delete()
-    sql = "DELETE FROM albums
-    WHERE id = $1"
+    sql = "DELETE FROM albums WHERE id = $1"
     values = [@id]
     SqlRunner.run( sql, "delete", values )
   end
@@ -44,6 +45,12 @@ class Album
   def self.delete_all()
     sql = "DELETE FROM albums"
     SqlRunner.run( sql, "delete_all", [] )
+  end
+
+  def self.delete(id)
+    sql = "DELETE FROM albums WHERE id = $1"
+    values = [id]
+    SqlRunner.run( sql, "delete_album", values )
   end
 
   def self.all()
@@ -62,11 +69,6 @@ class Album
     return result
   end
 
-  # def to_s()
-  #   return "Student: #{@id}  #{@first_name} #{@last_name},  Age:#{@age}
-  #   from House #{house.house_name}"
-  # end
-
   def artist()
     sql = "SELECT * FROM artists WHERE id = $1;"
     values = [@artist_id]
@@ -74,9 +76,19 @@ class Album
     return Artist.new(artists.first).artist_name
   end
 
+  def genre()
+    sql = "SELECT * FROM genres WHERE id =$1;"
+    values = [@genre_id]
+    none =[{'genre_name' => "None"}]
+    genre = SqlRunner.run(sql, "genre", values)
+    result = Genre.new(genre.first).genre_name
+    return result
+  end
+
   def album_buy()
     return "#{@buy_price}"
   end
+
 
   def album_sell()
     return "#{@sell_price}"
@@ -98,12 +110,4 @@ class Album
     total = ((@sell_price - @buy_price) * @quantity)
     return total
   end
-
-
-
-
-
-  # def projected_profit()
-  #
-  # end
 end

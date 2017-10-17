@@ -2,13 +2,14 @@
 
 
 <div class="albums">
- <% @albums.each do |album| %>
- <%= total_profit += @albums.profit() %>
-
- <div class="">
-   <div class="profit">
-   <p>Total Profit  <%= total_profit%>  </p>
-   </div>
-  </div>
+  <% @total_profit = 0 %>
+ <% for album in @albums%>
+ <% @total_profit += album.profit() %>
  <% end %>
+
+</div>
+<div>
+   <div class="profit">
+   <p>£<%= @total_profit%>  </p>
+   </div>
 </div>

@@ -1,8 +1,8 @@
-<form method="post" action="/add_album/add_new">
+<form class="inventory1" method="post" action="/add_album/add_new">
+  <p>Add a new album to inventory</p>
   <label for="artist-name">Select Artist Name:</label>
   <select id="artist-name" name="artist_id">
     <% Artist.all.each do |artist|  %>
-      <!-- <option value="<%= artist.id %>"><%= artist.artist_name %></option> -->
       <%= "<option value=#{artist.id}>#{artist.artist_name}</option>" %>
     <% end  %>
   </select>
@@ -10,6 +10,14 @@
 
   <label for="album-name">Album Name:</label>
     <input id="album-name" type="text" name="album_name">
+
+  <label for="genre-id">Genre:</label>
+   <select id="genre-id" name="genre_id">
+
+    <% Genre.all.each do |genre|  %>
+    <%= "<option value=#{genre.id}>#{genre.genre_name}</option>" %>
+    <% end  %>
+   </select>
 
   <label for="buy-price">Buy Price:</label>
     <input id="buy-price" type="number" name="buy_price"/>
@@ -21,4 +29,17 @@
     <input id="album-quantity" type="number" name="quantity">
 
   <input type='submit' value="Add Album"/>
+</form>
+
+
+
+  <form class="inventory2" method="post" action="/add_album/delete_album">
+  <p>Delete album from inventory</p>
+  <label class="red" for="album-name">Select Album Name:</label>
+  <select id="album-name" name="album_id">
+    <% Album.all.each do |album|  %>
+      <%= "<option value=#{album.id}>#{album.album_name}</option>" %>
+  <% end  %>
+  <input type='submit' value="Remove Album"/>
+  </select>
 </form>

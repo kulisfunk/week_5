@@ -69,7 +69,6 @@ li.menu5 a {
 
 table.inventory {
   text-align: center;
-  background: black opacity(0.8);
   margin: 0 auto;
   color: #ffff00
 }
@@ -96,4 +95,28 @@ p.complete {
   font-family: "Airstream", Arial;
   font-size: 50px;
   text-align: center
+}
+
+div.albums {
+  color: black opacity (0)
+}
+
+td.red {
+  color: #ff0000
+}
+
+.inventory1 p {
+  font-family: "Airstream", Arial;
+  font-size: 30px
+}
+
+.inventory2 p {
+  font-family: "Airstream", Arial;
+  font-size: 30px;
+  color: #ff99ff
+}
+
+label.red {
+
+  color: #ff99ff
 }
