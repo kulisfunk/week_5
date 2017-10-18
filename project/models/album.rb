@@ -11,6 +11,7 @@ class Album
     @genre_id = options['genre_id']
     @quantity = options['quantity'].to_i
     @artist_id = options['artist_id'].to_i
+    # @quantity_add = options['quantity'].to_i + 1
     @buy_price = options['buy_price'].to_i
     @sell_price = options['sell_price'].to_i
   end
@@ -76,14 +77,33 @@ class Album
     return Artist.new(artists.first).artist_name
   end
 
+  # def method to find genre name for an album instance
+  # sql statement to get genre from genre table based on given value for id
+  # setup value to pass to sqlrunner in this case genre_id which is FK from genre id
+  # run sqlrunner with genre_id and sql select command
+  # create new class instance of genre based on return from sqlrunner and pull out name
+  # return the genre name
+
   def genre()
     sql = "SELECT * FROM genres WHERE id =$1;"
     values = [@genre_id]
-    none =[{'genre_name' => "None"}]
     genre = SqlRunner.run(sql, "genre", values)
     result = Genre.new(genre.first).genre_name
     return result
   end
+
+  # def update()
+  #   sql = "UPDATE albums
+  #   SET
+  #   (
+  #     quantity
+  #     ) = (
+  #       $1
+  #     ) WHERE id = $2;"
+  #   values = [@quantity_add, @id]
+  #   album_data = SqlRunner.run(sql, "save", values)
+  #   @id = album_data.first()['id'].to_i
+  # end
 
   def album_buy()
     return "#{@buy_price}"

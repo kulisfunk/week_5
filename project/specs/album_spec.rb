@@ -15,14 +15,6 @@ class TestAlbum < Minitest::Test
     'buy_price' => 10,
     'sell_price' => 15
     }
-    album2 = {'id' => 2,
-    'artist_id' => 1,
-    'album_name' => "test",
-    'genre_id' => 0,
-    'quantity' => 5,
-    'buy_price' => 10,
-    'sell_price' => 15
-    }
     genre = { 'id' => 1,
     'genre_name' => "Pop"
     }
@@ -32,15 +24,15 @@ class TestAlbum < Minitest::Test
 
   end
 
-  # def test_profit()
-  #   actual = @album1.profit()
-  #   result = 25
-  #   assert_equal(result, actual)
-  # end
+  def test_profit()
+    actual = @album1.profit()
+    result = 25
+    assert_equal(result, actual)
+  end
 
   def test_genre()
     actual = @album1.genre()
-    result = "Pop"
+    result = "Alternative"
     assert_equal(result, actual)
   end
 

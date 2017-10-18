@@ -31,15 +31,28 @@
   <input type='submit' value="Add Album"/>
 </form>
 
+<p></p>
+<p></p>
+<!-- <form class="inventory3" method="post" action="/add_album/buy_album">
+ <p>Buy existing album in inventory</p>
+ <label class="red" for="album-name">Select Album Name:</label>
+ <select id="album-name" name="album_id">
+   <% Album.all.each do |album|  %>
+   <%= "<option value=#{album.id}>#{album.album_name}</option>" %>
+   <% end  %>
+ <input type='submit' value="Buy Album"/>
+ </select>
+</form>
+<p></p>
+<p></p> -->
 
-
-  <form class="inventory2" method="post" action="/add_album/delete_album">
-  <p>Delete album from inventory</p>
-  <label class="red" for="album-name">Select Album Name:</label>
-  <select id="album-name" name="album_id">
-    <% Album.all.each do |album|  %>
-      <%= "<option value=#{album.id}>#{album.album_name}</option>" %>
-  <% end  %>
-  <input type='submit' value="Remove Album"/>
-  </select>
+<form class="inventory2" method="post" action="/add_album/delete_album">
+ <p>Delete album from inventory</p>
+ <label class="red" for="album-name">Select Album Name:</label>
+ <select id="album-name" name="album_id">
+   <% Album.all.each do |album|  %>
+   <%= "<option value=#{album.id}>#{album.album_name}</option>" %>
+   <% end  %>
+ <input type='submit' value="Remove Album"/>
+ </select>
 </form>

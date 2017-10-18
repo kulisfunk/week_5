@@ -17,6 +17,12 @@ post '/add_album/add_new' do
   redirect to(:"add_album/new")
 end
 
+# post '/add_album/buy_album' do
+#   album = Album.find(params[:album_id])
+#   album.update()
+#   redirect to(:"add_album/new")
+# end
+
 post '/add_album/delete_album' do
   album = Album.find(params[:album_id])
   album.delete()
